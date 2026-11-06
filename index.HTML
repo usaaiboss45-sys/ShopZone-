@@ -1,0 +1,112 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopZone - Online Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Shop<span>Zone</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="cart-btn" onclick="toggleCart()">
+    🛒 Cart (<span id="cart-count">0</span>)
+  </button>
+</header>
+
+<section class="hero" id="home">
+  <h1>Everything You Need, All in One Place!</h1>
+  <p>Shop Electronics, Fashion, Home Products & More.</p>
+  <a href="#products" class="shop-btn">Start Shopping</a>
+</section>
+
+<section class="products-section" id="products">
+  <h2>Explore All Products</h2>
+  <input id="search" placeholder="Search anything...">
+
+  <div class="categories">
+    <button class="active" onclick="filterProducts('All',this)">All</button>
+    <button onclick="filterProducts('Electronics',this)">Electronics</button>
+    <button onclick="filterProducts('Clothing',this)">Clothing</button>
+    <button onclick="filterProducts('Shoes',this)">Shoes</button>
+    <button onclick="filterProducts('Furniture',this)">Furniture</button>
+    <button onclick="filterProducts('Home',this)">Home</button>
+    <button onclick="filterProducts('Accessories',this)">Accessories</button>
+  </div>
+
+  <div class="product-grid" id="product-list"></div>
+</section>
+
+<!-- Product Details -->
+<div class="modal" id="product-modal">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">✕</button>
+    <div id="product-details"></div>
+  </div>
+</div>
+
+<!-- Shopping Cart -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cart-panel">
+  <div class="cart-header">
+    <h2>My Cart</h2>
+    <button onclick="closeCart()">✕</button>
+  </div>
+  <div id="cart-items"></div>
+  <div class="cart-footer">
+    <h3>Total: Rs. <span id="cart-total">0</span></h3>
+    <button class="checkout-btn" onclick="openCheckout()">Buy Now / Checkout</button>
+  </div>
+</aside>
+
+<!-- Checkout -->
+<div class="modal" id="checkout-modal">
+  <div class="modal-content">
+    <button class="close" onclick="closeCheckout()">✕</button>
+    <h2>Complete Your Order</h2>
+
+    <form id="checkout-form">
+      <input id="customer-name" placeholder="Your Full Name" required>
+      <input id="customer-phone" type="tel" placeholder="Mobile Number" required>
+      <textarea id="customer-address" placeholder="Complete Delivery Address" required></textarea>
+
+      <h3>Select Payment Method</h3>
+      <select id="payment-method" required>
+        <option value="">Choose Payment</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <option value="JazzCash">JazzCash</option>
+        <option value="Easypaisa">Easypaisa</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+      </select>
+
+      <div class="payment-info" id="payment-info">
+        Select a payment method to see instructions.
+      </div>
+
+      <p id="checkout-total" class="price"></p>
+      <button class="checkout-btn" type="submit">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<section id="contact" class="contact">
+  <h2>Contact ShopZone</h2>
+  <p>Email: usaaiboss@gmail.com</p>
+  <p>Contact: 03087239285</p>
+  <p>Name:Haseeb</p>
+</section>
+
+<footer>© 2026 ShopZone. All Rights Reserved.</footer>
+
+<script src="script.ja.js"></script>
+<link rel="stylesheet" href="style.css">
+</body>
+</html>
